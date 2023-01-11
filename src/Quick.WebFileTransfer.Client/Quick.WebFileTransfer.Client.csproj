@@ -1,12 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Version>1.0.0</Version>
+		<Authors>scbeta</Authors>
+		<Product>Quick.WebFileTransfer</Product>
+		<PackageProjectUrl>https://github.com/aaasoft/Quick.WebFileTransfer</PackageProjectUrl>
+		<PackageIcon>logo.png</PackageIcon>
+		<Description>Download or upload file with ASP.NET Core.</Description>
+		<RepositoryUrl>https://github.com/aaasoft/Quick.WebFileTransfer</RepositoryUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Quick.WebFileTransfer.Core\Quick.WebFileTransfer.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Quick.WebFileTransfer.Core\Quick.WebFileTransfer.Core.csproj" />
+	</ItemGroup>
 
 </Project>

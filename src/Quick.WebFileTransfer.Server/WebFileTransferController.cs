@@ -20,6 +20,10 @@ namespace Quick.WebFileTransfer.Server
         [HttpGet(nameof(Download))]
         public ActionResult Download(string folder, string file)
         {
+            if (string.IsNullOrEmpty(baseFolder)
+                || string.IsNullOrEmpty(token))
+                throw new ArgumentException($"Must call Init method first.");
+
             var fullFolder = baseFolder;
             if (!string.IsNullOrEmpty(folder))
                 fullFolder = Path.Combine(fullFolder, folder);
@@ -50,8 +54,12 @@ namespace Quick.WebFileTransfer.Server
         }
 
         [HttpPost(nameof(Upload))]
-        public ActionResult Upload(string folder, [FromForm] IFormFile file)
+        public ActionResult Upload(string folder, IFormFile file)
         {
+            if (string.IsNullOrEmpty(baseFolder)
+                || string.IsNullOrEmpty(token))
+                throw new ArgumentException($"Must call Init method first.");
+
             var fullFolder = baseFolder;
             if (!string.IsNullOrEmpty(folder))
                 fullFolder = Path.Combine(fullFolder, folder);
