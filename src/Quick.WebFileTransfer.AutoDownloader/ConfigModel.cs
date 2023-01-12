@@ -14,5 +14,7 @@ namespace Quick.WebFileTransfer.AutoDownloader
         public string RemoteFile{ get; set; }
         public string LocalFolder { get; set; }
         public string DownloadCrontab { get; set; }
+        public string BeginScript { get; set; }
+        public string EndScript { get; set; }
     }
 }
