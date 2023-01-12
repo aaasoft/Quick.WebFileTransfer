@@ -14,6 +14,8 @@ namespace Quick.WebFileTransfer.Client
     {
         private string apiUrl;
         private string token;
+        public Action<string> Logger { get; set; }
+
         public WebFileTransferClient(string apiUrl, string token)
         {
             this.apiUrl = apiUrl;
@@ -27,10 +29,17 @@ namespace Quick.WebFileTransfer.Client
             using (var fileStream = client.GetStreamAsync(url).Result)
             using (var cryptoStream = new CryptoReadStream(fileStream, token))
             using (var zipArchive = new ZipArchive(cryptoStream, ZipArchiveMode.Read))
+            {
+                if (Logger != null)
+                {
+                    var files = zipArchive.Entries.Select(t => t.FullName).ToArray();
+                    Logger.Invoke($"Downloaded file content:{Environment.NewLine}{string.Join(Environment.NewLine, files)}");
+                }
                 zipArchive.ExtractToDirectory(localFolder, true);
-        }
+            }
+            }
 
-        public void Upload(string remoteFolder, string localFolder, string localFile)
+            public void Upload(string remoteFolder, string localFolder, string localFile)
         {
             var di = new DirectoryInfo(localFolder);
             if (!di.Exists)

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick.WebFileTransfer.Server", "Quick.WebFileTransfer.Server\Quick.WebFileTransfer.Server.csproj", "{3ACCE726-DF29-497A-B298-185E02089FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.Server", "Quick.WebFileTransfer.Server\Quick.WebFileTransfer.Server.csproj", "{3ACCE726-DF29-497A-B298-185E02089FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick.WebFileTransfer.Client", "Quick.WebFileTransfer.Client\Quick.WebFileTransfer.Client.csproj", "{C846E6E4-C3B8-4A23-8CA1-D820D2906A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.Client", "Quick.WebFileTransfer.Client\Quick.WebFileTransfer.Client.csproj", "{C846E6E4-C3B8-4A23-8CA1-D820D2906A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick.WebFileTransfer.ServerSample", "Quick.WebFileTransfer.ServerSample\Quick.WebFileTransfer.ServerSample.csproj", "{2EF47909-D01C-4217-8096-0583A75B9898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.ServerSample", "Quick.WebFileTransfer.ServerSample\Quick.WebFileTransfer.ServerSample.csproj", "{2EF47909-D01C-4217-8096-0583A75B9898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick.WebFileTransfer.ClientSample", "Quick.WebFileTransfer.ClientSample\Quick.WebFileTransfer.ClientSample.csproj", "{13A6B3C7-6E6E-4372-8ECC-52D4633FEF91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.ClientSample", "Quick.WebFileTransfer.ClientSample\Quick.WebFileTransfer.ClientSample.csproj", "{13A6B3C7-6E6E-4372-8ECC-52D4633FEF91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quick.WebFileTransfer.Core", "Quick.WebFileTransfer.Core\Quick.WebFileTransfer.Core.csproj", "{02B7C4D2-22A0-43D5-B986-1DC740987C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.Core", "Quick.WebFileTransfer.Core\Quick.WebFileTransfer.Core.csproj", "{02B7C4D2-22A0-43D5-B986-1DC740987C25}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.AutoDownloader", "Quick.WebFileTransfer.AutoDownloader\Quick.WebFileTransfer.AutoDownloader.csproj", "{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{02B7C4D2-22A0-43D5-B986-1DC740987C25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B7C4D2-22A0-43D5-B986-1DC740987C25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B7C4D2-22A0-43D5-B986-1DC740987C25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

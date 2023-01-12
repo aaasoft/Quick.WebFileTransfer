@@ -1,0 +1,7 @@
+﻿{
+  "Name": "Quick.WebFileTransfer自动文件下载工具",
+  "Version": "1.0.x.x",
+  "Description": "[Quick.WebFileTransfer自动文件下载工具]是使用Quick.WebFileTransfer协议自动下载文件的工具。",
+  "Platform": [ "win_x64", "linux_x64", "linux_arm64", "linux_arm" ],
+  "AgentStartup": "Quick.WebFileTransfer.AutoDownloader.dll"
+}
