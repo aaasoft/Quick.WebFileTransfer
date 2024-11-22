@@ -1,6 +1,7 @@
 ﻿using Quick.WebFileTransfer.Client;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using YiQiDong.Agent;
 using YiQiDong.Core.Utils;
 
 namespace Quick.WebFileTransfer.AutoDownloader
@@ -16,7 +17,7 @@ namespace Quick.WebFileTransfer.AutoDownloader
         {
             cts = new CancellationTokenSource();
             var appSettingModel = Quick.Fields.AppSettings.Model.Load();
-            configModel = appSettingModel.Convert<ConfigModel>();
+            configModel = appSettingModel.Convert<ConfigModel>(ConfigModelSerializerContext.Default);
             schedule = NCrontab.CrontabSchedule.Parse(configModel.DownloadCrontab);
             run(cts.Token);
         }
@@ -72,11 +73,11 @@ namespace Quick.WebFileTransfer.AutoDownloader
                     process.OutputDataReceived += (sender, e) => Console.WriteLine($"进程[{process?.Id}]: {e.Data}");
                     process.ErrorDataReceived += (sender, e) => Console.WriteLine($"进程[{process?.Id}]: {e.Data}");
                     process.WaitForExit();
-                    Console.WriteLine($"进程[{process.Id}]已退出，退出码：{process.ExitCode}");
+                    AgentContext.LogInfo($"进程[{process.Id}]已退出，退出码：{process.ExitCode}");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"执行启动脚本[{line}]时出错，原因：{ExceptionUtils.GetExceptionMessage(ex)}");
+                    AgentContext.LogWarn($"执行启动脚本[{line}]时出错，原因：{ExceptionUtils.GetExceptionMessage(ex)}");
                 }
                 finally
                 {
@@ -97,7 +98,7 @@ namespace Quick.WebFileTransfer.AutoDownloader
             if (schedule == null)
                 return;
             var nextRunTime = schedule.GetNextOccurrence(DateTime.Now);
-            Console.WriteLine($"下次下载时间[{nextRunTime}]...");
+            AgentContext.LogInfo($"下次下载时间[{nextRunTime}]...");
             TaskUtils.RunAtTime(nextRunTime, () =>
              {
                  try
@@ -106,23 +107,23 @@ namespace Quick.WebFileTransfer.AutoDownloader
                          throw new ApplicationException("configModel is null.");
                      if (!string.IsNullOrEmpty(configModel.BeginScript))
                      {
-                         Console.WriteLine($"开始执行起始脚本...");
+                         AgentContext.LogInfo($"开始执行起始脚本...");
                          ExecuteScripts(configModel.BeginScript.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
                      }
-                     Console.WriteLine($"开始下载...");
+                     AgentContext.LogInfo($"开始下载...");
                      var client = new WebFileTransferClient(configModel.ApiUrl, configModel.ApiToken);
                      client.Logger = Console.WriteLine;
                      client.Download(configModel.RemoteFolder, configModel.RemoteFile, configModel.LocalFolder);
                      Console.WriteLine("下载完成！");
                      if (!string.IsNullOrEmpty(configModel.EndScript))
                      {
-                         Console.WriteLine($"开始执行结束脚本...");
+                         AgentContext.LogInfo($"开始执行结束脚本...");
                          ExecuteScripts(configModel.EndScript.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
                      }
                  }
                  catch (Exception ex)
                  {
-                     Console.WriteLine(ex.ToString());
+                     AgentContext.LogError(ExceptionUtils.GetExceptionString(ex));
                  }
                  finally
                  {

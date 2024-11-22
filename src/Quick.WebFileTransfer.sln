@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.Core"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quick.WebFileTransfer.AutoDownloader", "Quick.WebFileTransfer.AutoDownloader\Quick.WebFileTransfer.AutoDownloader.csproj", "{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_build", "_build\_build.csproj", "{3330B562-F411-4D6C-92EC-44A1E93A13C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CBF6664-B5D5-4CC5-B550-4D3F97FEC594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3330B562-F411-4D6C-92EC-44A1E93A13C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3330B562-F411-4D6C-92EC-44A1E93A13C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3330B562-F411-4D6C-92EC-44A1E93A13C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3330B562-F411-4D6C-92EC-44A1E93A13C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

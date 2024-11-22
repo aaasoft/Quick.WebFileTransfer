@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<RollForward>Major</RollForward>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NCrontab.Signed" Version="3.3.2" />
-		<PackageReference Include="YiQiDong.Agent" Version="2.2.15" />
+		<PackageReference Include="NCrontab.Signed" Version="3.3.3" />
+		<PackageReference Include="YiQiDong.Core" Version="2.4.3" />
 	</ItemGroup>
 
 	<ItemGroup>

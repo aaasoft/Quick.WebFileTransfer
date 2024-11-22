@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
 using Quick.Build;
 using SharpCompress.Archives;
@@ -67,12 +66,7 @@ foreach (var productDir in productDirs)
         archive.AddAllFromDirectory(publishFolder);
         archive.SaveTo(outFile, CompressionType.LZMA);
     }
-    QbFile.ChangeHeader(outFile, "yz");
 }
 Console.WriteLine("完成");
-//如果是在Windows平台，则打开窗口
-if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-{
-    try { QbCommand.Run("Explorer", @"bin"); }
-    catch { }
-}
+//打开窗口
+QbGui.OpenFolder("bin");
