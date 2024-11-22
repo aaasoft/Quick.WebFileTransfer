@@ -4,6 +4,7 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<IsPackable>true</IsPackable>
 		<Version>1.0.1</Version>
 		<Authors>scbeta</Authors>
 		<Product>Quick.WebFileTransfer</Product>
